@@ -1,10 +1,10 @@
 import React from 'react'
-let nombre = prompt("Cual es tu nombre?");
+let nombre = "Fernando";
 function ItemListContainer(props) {
     
   return (
     <>
-        <p>{props.greeting} {nombre}!</p>
+        <p className='mensaje'>{props.greeting} {nombre}!</p>
     </>
   )
 }

@@ -5,8 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 function NavBar() {
   return (
     <Nav className="nav" defaultActiveKey="/home" as="ul">
-      <Nav.Item  as="li">
-        <Nav.Link className='links' href="/home">Home</Nav.Link>
+      <Nav.Item as="li">
+        <Nav.Link className='links active'  href="/home">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
         <Nav.Link className='links' eventKey="link-1">Store</Nav.Link>

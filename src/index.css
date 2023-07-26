@@ -30,6 +30,12 @@ body{
     color: #146886;
 }
 
+.mensaje{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
 
 .main{
     width: 100%;

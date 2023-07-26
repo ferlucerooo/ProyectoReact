@@ -1,13 +1,13 @@
-import Footer from "./componentes/Footer";
-import Header from "./componentes/Header";
-import ItemListContainer from "./componentes/ItemListContainer";
-import Main from "./componentes/Main";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import ItemListContainer from "./components/ItemListContainer";
+import Main from "./components/Main";
 
 function App() {
   return (
     <>
       <Header />
-      <ItemListContainer  greeting="Bienvenido/a "/>
+      <ItemListContainer  greeting="Bienvenido "/>
       <Main />
       <Footer/>
     </>
