@@ -1,13 +1,71 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(202, 199, 199);
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    background: #12354a;
+}
+.titulo{
+    color: #fff;
+    font-size: 34px;
+    
+}
+.links{
+    list-style: none;
+    text-decoration: none;
+    align-self: center;
+    margin-right: 8px;
+    color: #fff;
+}
+.links:hover{
+    color: #146886;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.main{
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+
+
+.footer{
+    width: 100%;
+    height: 8vh;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: space-between;
+    background: #12354a;
+    color: #fff;
+}
+
+.linkedin{
+    color: #fff;
+    text-decoration: none;
+}
+.linkedin:hover{
+    color: #146886;
+}
+.div__a{
+    color: #fff;
+    padding-left: 16px;
+    margin-right: 4px;
+    font-size: 25px;
+}
+.div__a:hover{
+    color: #146886;
 }
