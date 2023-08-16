@@ -23,7 +23,7 @@ body{
     list-style: none;
     text-decoration: none;
     align-self: center;
-    margin-right: 8px;
+    margin-right: 26px;
     color: #fff;
 }
 .links:hover{
@@ -39,16 +39,72 @@ body{
 
 .main{
     width: 100%;
-    height: 100vh;
+    height: 100%;
+}
+
+.section_card{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+    margin: 0 10px;
+}
+.card{
+    background-color: #ffffff;
+    padding: 10px;
+}
+.card:hover{
+    transform: scale(1.05);
+    transition: .6s ;
+}
+.titulo_card, .precio_card{
+    font-size: 20px;
+    text-align: center;
+}
+
+.img_card{
+    align-self: center;
+    border-radius: 4px;
+    width: 300px;
+    height: 300px;
+}
+
+
+.contador{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.boton_contador{
+    padding: 4px;
+    border: 1px solid #a7bcc4;
+    background: #fff;
+}
+.boton_contador:hover{
+    background:#a7bcc4;
+    color: #fff;
+}
+
+.boton_add{
+    border: 1px solid #146886;
+    background: #fff;
+}
+.boton_add:hover{
+    background: #146886;
+    color:#fff;
 }
 
 
 
-
+.stock{
+    display: flex;
+    justify-content: center;
+}
 
 .footer{
+    margin-top: 10px;
     width: 100%;
-    height: 8vh;
+    height: 44px;
     bottom: 0;
     display: grid;
     grid-template-columns: auto auto;
