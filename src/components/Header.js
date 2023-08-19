@@ -5,10 +5,9 @@ function Header (){
     return (
         <>
             <header className="header">
-                <Link to="/">
-                    <h1 className="titulo" >Funkweb</h1>
+                <Link className="titulo_link" to="/">
+                    <h1 className="titulo" >Market Commerce</h1>
                 </Link>
-
                 <NavBar/>
             </header>
         </>

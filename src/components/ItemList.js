@@ -1,12 +1,12 @@
 import React from 'react'
-import Presentacional from './Presentacional'
+import Presentacional from './Item'
 import { useEffect, useState } from 'react'
-import ItemDetailContainer from './ItemDetailContainer'
+import Item from './Item';
 
-function Container() {
+function ItemList() {
 
     const [data, setData] = useState ([])  // solo pasa 1 vez
-    /* const resultado = useParams() */ // 
+
     console.log(data);
     useEffect(()=>{
         getProductos(setData)
@@ -23,15 +23,14 @@ function Container() {
        //vista
   return (
     <>
-      <Presentacional data = {data}/>
-      {/* <ItemDetailContainer dataid = {data}/> */}
+      <Item data = {data}/>
     </>
   )
   
     }
 
 
- 
 
 
-export default Container
+
+export default ItemList

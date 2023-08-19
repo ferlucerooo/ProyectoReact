@@ -14,11 +14,15 @@ body{
     align-items: center;
     background: #12354a;
 }
+
 .titulo{
     color: #fff;
     font-size: 34px;
-    
 }
+.titulo_link{
+    text-decoration: none;
+}
+
 .links{
     list-style: none;
     text-decoration: none;
@@ -68,6 +72,35 @@ body{
     height: 300px;
 }
 
+.section_card_det{
+    padding: 100px;
+}
+
+.card_det{
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #ffffff;
+    padding: 10px;
+}
+.titulo_card_det, .precio_card_det{
+    font-size: 20px;
+    text-align: center;
+}
+
+.img_card_det{
+    justify-self: center;
+    border-radius: 4px;
+    width: 300px;
+    height: 300px;
+    
+}
+.description_det{
+    font-size: 20px;
+    text-align: center;
+}
+
+
+
 
 .contador{
     display: flex;
@@ -88,6 +121,9 @@ body{
 .boton_add{
     border: 1px solid #146886;
     background: #fff;
+    padding: 4px;
+    width: 40%;
+    justify-self: center;
 }
 .boton_add:hover{
     background: #146886;

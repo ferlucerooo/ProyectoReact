@@ -1,48 +1,32 @@
-import React from 'react'
-import Presentacional from './Presentacional'
-import { Link, useParams } from 'react-router-dom'
-import ItemCount from './ItemCount'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import ItemDetail from './ItemDetail'
 
 
 
 
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
 
-  const onAdd = (quantity) =>{
-    console.log(`compraste ${quantity} unidades`);
-  }
+      const [item, setItem] = useState();
 
-  const {id} = useParams();   // Usa el ID para obtener los detalles del artículo y mostrarlos
- /*  if (!props.data || props.data.length === 0) {
-    return <p>Cargando...</p>; // O cualquier otro mensaje de carga
-  } */
-  /* const detalleFind = props.id.find(item => item.id === id); */
+      const { id } = useParams();
+    
+      useEffect(() => {
+        fetch(`https://fakestoreapi.com/products/${id}`)
+          .then(response => response.json())
+          .then(data => setItem(data))
+          .catch(error => console.error('Error al adquirir detao del fetch', error));
+      }, [id]);
+
+      if (!item){
+        return <p>Cargando...</p>;
+      }
+
+
   return (
     <>
-      <section> 
-        {/* {detalleFind ? (
-          <article >
-            <Presentacional id={[detalleFind]}/>
-            <p >{detalleFind.description}</p>
-            <ItemCount />
-          </article>
-        ) :(
-          <p>No se encuentra disponible</p>
-          
-        )}
-           */}
-          
-            <article className='card'  >
-              <h2 className='titulo_card'>{item.title}</h2>
-              <p className='precio_card'>${item.price}</p>
-              <img className='img_card' src={item.image} alt={item.title} />
-            <p >asdsa</p>
-            <ItemCount initial={1} stock={10} onAdd={onAdd} />
-          </article>
-      </section> 
-      
-    
+      <ItemDetail item={item}/>
     </>
   )
 }
