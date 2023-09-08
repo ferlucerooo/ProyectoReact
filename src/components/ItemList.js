@@ -1,16 +1,19 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import Item from './Item';
-import { db } from '../firebase';
-import { getDocs , collection } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
+/* import { db } from '../firebase';
+import { getDocs , collection } from 'firebase/firestore'; */
 
 
 
 function ItemList() {
 
-    const [data, setData] = useState ([])  // solo pasa 1 vez
-/*     const resultado = useParams();
+    const [data, setData] = useState ([]);  // solo pasa 1 vez
+
+    const {id} = useParams();
+
+    /*     const resultado = useParams();
   
   
   useEffect(()=>{
@@ -37,27 +40,34 @@ function ItemList() {
     console.log(data);
     useEffect(()=>{
         getProductos(setData)
-    },[])    // aca hacemos el pedido a la api
+    },[id])    // aca hacemos el pedido a la api
 
     const getProductos = () =>{
 
         const resultado_del_fetch = fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())
-            .then(json=> setData(json))
+            .then(json=> {
+              if(id){
+                const filterData = json.filter(producto => producto.category === id)
+                setData(filterData)
+              }else{
+                setData(json)
+              }
+            });
             console.log(resultado_del_fetch);
+
+          
     }
 
+    
        //vista
   return (
     <>
-      <Item data = {data}/>
+      <Item data = {data} />
     </>
   )
   
     }
-
-
-
 
 
 export default ItemList

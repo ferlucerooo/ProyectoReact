@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { contexto } from './CartContext'
 
-function Carrito() {
+function Cart() {
   
   const contextoCarrito = useContext(contexto)
 
@@ -48,4 +48,4 @@ function Carrito() {
   )
 }
 
-export default Carrito
+export default Cart
