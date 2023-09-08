@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// este seria el item.js
+
+
 function Item(props) {
   return (
     <section className='section_card'> 

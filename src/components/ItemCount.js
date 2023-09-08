@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useContext} from "react";
 import React from 'react'
+import { contexto } from "./CartContext";
 
 
 
-function ItemCount({initial, stock, /* onAdd */}) {
+function ItemCount({initial, stock, onAdd}) {
+ 
 
+    let [contador, setContador] = useState(parseInt(initial))
 
-    let [contador, setContador] = useState(parseInt(initial));
+  const ContextoActual =  useContext(contexto)
+ console.log(ContextoActual);
 
 const suma = () =>{
     setContador(contador + 1);
@@ -20,6 +23,16 @@ useEffect(()=> {
 },[initial])
 
 
+const syncContador = ()=> {
+  onAdd(contador);
+}
+/* const onAddToCart = (id, cantidad) => {
+  ContextoActual.addCart(id, cantidad)
+}
+ */
+
+
+
   return (
     <>
     <div className='contador'>
@@ -27,8 +40,8 @@ useEffect(()=> {
       <p>{contador}</p>
       <button disabled={contador >=stock } className="boton_contador" onClick={suma}>+</button>
     </div>
-    <p className="stock">Stock: 10</p>
-    <button disabled={stock <= 0 } className="boton_add"  /* onClick={() => onAdd(contador)} */>Agregar al carrito</button>
+    <p className="stock">Stock: {stock}</p>
+    <button disabled={stock <= 0 } className="boton_add"  onClick={syncContador}>Agregar al carrito</button>
     </>
   )
 }
