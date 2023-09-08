@@ -8,9 +8,11 @@ function CartWidget() {
 
   return (
     <>
+      {contextoWidget.cantidadTotal > 0 &&(
         <NavLink className="boton-carrito links" to="./cart">
           <i className="bi bi-cart-fill"></i> Carrito <span  className="numerito">{contextoWidget.cantidadTotal}</span>
         </NavLink>
+        )}
     </>
     
   )
