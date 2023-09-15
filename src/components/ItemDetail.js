@@ -8,33 +8,15 @@ function ItemDetail(props) {
   const [irAlCarrito, setIrAlCarrito] = useState(false);
 
   const [cantidadSeleccionada, setCantidadSeleccionada] = useState(0);
-  const contextoDetail = useContext(contexto)
-
+  const {addCart} = useContext(contexto)
   const onAdd = (contador)=> {
 
     setIrAlCarrito(true)
 
     setCantidadSeleccionada(contador);
 
-    contextoDetail.addCart(props.item, contador);
+    addCart(props.item, contador)
 
-
-    /* setCantidadSeleccionada(contador);
-
-
-    const precioTotal = props.item.price * contador;
-
-    contextoDetail.carrito.push({
-
-      item: props.item,
-      cantidad: contador,
-      precioTotal: precioTotal,
-
-    })
-
-    contextoDetail.montoTotal += precioTotal;
-    contextoDetail.cantidadTotal += contador;
- */
   }
 
   return (
@@ -46,11 +28,15 @@ function ItemDetail(props) {
             <p className='description_det'>{props.item.description}</p>
             {
               irAlCarrito 
-              ? <Link to='/cart' className="boton_add">Terminar compra </Link>/* , <Link to='/' className="boton_add">Seguir comprando</Link> */
-              : <ItemCount initial={0} stock={10} onAdd={onAdd}/>
+              ?(<div>
+                  <Link to='/cart' className="boton_add">Terminar compra</Link>
+                  <Link to='/' className="boton_add">Seguir comprando</Link>
+                </div>
+              )
+              : (<ItemCount initial={0} stock={10} onAdd={onAdd}/>)
             }
             
-            <p>cantidad seleccionada : {cantidadSeleccionada}</p>
+            <p>Cantidad seleccionada : {cantidadSeleccionada}</p>
         </article>
     </section>
   )

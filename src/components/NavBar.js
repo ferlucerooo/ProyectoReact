@@ -7,7 +7,7 @@ function NavBar() {
     <nav>
       <NavLink className='links' to="/category/electronics">Electronica</NavLink>
       <NavLink className='links' to="/category/jewelery">Joyas</NavLink>
-      <NavLink className='links' to="/category/men's clothing">Ropa </NavLink>
+      <NavLink className='links' to="/category/clothing">Ropa </NavLink>
       <CartWidget/>
     </nav>
   );

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { contexto } from './CartContext'
+import { Link } from 'react-router-dom';
 
 function Cart() {
   
   const contextoCarrito = useContext(contexto)
 
-  const {carrito, clearCart,removeCart, montoTotal, cantidadTotal, addCart } = contextoCarrito;
+  const {carrito, clearCart,removeCart, montoTotal, cantidadTotal, addCart} = contextoCarrito;
 
   const eliminarDeUno = (id) => {
     const product = carrito.find((producto) => producto.id === id);
@@ -22,12 +23,16 @@ function Cart() {
     <>
         <h1>Carrito de Compras</h1>
         {carrito.length === 0 
-        ? ( <p>El carrito esta vacio.</p>)
+        ? ( <div>
+              <p>El carrito esta vacio.</p>
+              <Link to='/' className="boton_add">Volver a la tienda </Link>
+            </div> )
+            
         : (
           <>
             <ul>
-            {carrito.map((producto) => (
-              <li className='card' key={producto.id}>
+            {carrito.map((producto, i) => (
+              <li className='card' key={i}>
                 <p className='titulo_card'>Producto: {producto.title}</p>
                 <img className='img_card' src={producto.image} alt={producto.title} />
                 <p>Cantidad: {producto.contador}</p>

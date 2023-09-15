@@ -24,12 +24,10 @@ useEffect(()=> {
 
 
 const syncContador = ()=> {
-  onAdd(contador);
+  onAdd(contador)
+  
 }
-/* const onAddToCart = (id, cantidad) => {
-  ContextoActual.addCart(id, cantidad)
-}
- */
+
 
 
 

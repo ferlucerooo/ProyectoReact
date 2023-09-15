@@ -8,7 +8,6 @@ import Cart from './Cart'
 function Main() {
   return (
     <main className='main'>
-      <h2> Stock de la tienda</h2>
         <Routes>
           <Route path='/' element={<ItemListContainer  greeting="Bienvenido "/>}/>
           <Route path='/category/:id' element={<ItemListContainer  greeting="Bienvenido "/>}/>
