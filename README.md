@@ -8,18 +8,22 @@ La idea de este proyecto es aplicar todas las tecnicas y conceptos de React apre
 
 Para iniciar el proyecto se uso:
 
-1- se instalo todos los componentes de react por defecto de la siguiente manera: 
+1- se instalo todos los componentes de react por defecto de la siguiente manera
 - npm i-g create-react-app
 - create-react-app
 - create-react-app miproyecto
 - para iniciar el server usamos npm start
+
 2- se instalo bootstrap-icons usando 
 - npm i bootstrap-icons
+
 3- se instalo firebase que seria la base de datos que utilizamos para el proyecto
+
 - crear cuenta en la web
 - crear un proyecto 
 - crear la base de datos
 - establecer coneccion con la base de datos
+
 4- se instalo react-router-dom para el manejo de las rutas en la app de la siguiente manera
 - npm install react-router-dom
 - npm run dev

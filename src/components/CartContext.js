@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const contexto = createContext ();
 const Provider = contexto.Provider
@@ -10,7 +10,10 @@ const CartContext = (props) => {
     const [cart, setCart] = useState([]);
     const [montoTotal, setMontoTotal] = useState(0);
     const [cantidadTotal, setCantidadTotal] = useState(0);
-    /* const [terminarCompra, setTerminarComprea] = useState(false); */
+
+    useEffect(()=>{
+      calcularTotales(cart);
+    },[cart])
 
     const calcularTotales = (cart) => {
       let total = 0;
@@ -33,44 +36,46 @@ const CartContext = (props) => {
     }
 
     const removeCart = (id) =>{
-      const removeProduct = cart.find((producto)=> producto.id === id);
-      if(removeProduct){
-        setCart(cart.filter(producto => producto.id !== id));
-        calcularTotales(cart.filter((producto) => producto.id !== id));
-        
-
+      
+      const productIndex = cart.findIndex((producto) => producto.id === id);
+      if (productIndex !== -1) {
+        const updatedCart = [...cart];
+        updatedCart.splice(productIndex, 1);
+        setCart(updatedCart);
+        calcularTotales(updatedCart); 
       }
       
     } 
 
+
     const addCart =  (item, contador) => {
-      const inCart = cart.find((producto) => producto.id === item.id )
-      if (inCart) {
-        // El producto ya está en el carrito, actualiza su cantidad
-        const updatedCart = cart.map((producto) =>
-          producto.id === item.id
-            ? { ...producto, contador: producto.contador + contador }
-            : producto
-        );
+
+      const existingProductIndex = cart.findIndex((producto) => producto.id === item.id);
+
+      if (existingProductIndex !== -1) {
+        
+        const updatedCart = [...cart];
+        
+        updatedCart.push({ ...item, contador });
         setCart(updatedCart);
         calcularTotales(updatedCart);
       } else {
-        // El producto no está en el carrito, agrégalo al carrito
-        setCart([...cart, { ...item, contador }]);
-        calcularTotales([...cart, { ...item, contador}]);
-      } 
+        
+        setCart((productos) => [...productos, { ...item, contador }]);
+        
+      }
+     
     };
     
     const valorDelContexto = {
-      // lo que usariamos globalmente
+      
       carrito: cart,
       clearCart,
       removeCart,
       addCart,
       cantidadTotal,
       montoTotal,
-      /* terminarCompra,
-      setTerminarComprea, */
+      
     };
     console.log(valorDelContexto);
 

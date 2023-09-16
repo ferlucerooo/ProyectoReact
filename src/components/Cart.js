@@ -6,17 +6,10 @@ function Cart() {
   
   const contextoCarrito = useContext(contexto)
 
-  const {carrito, clearCart,removeCart, montoTotal, cantidadTotal, addCart} = contextoCarrito;
+  const {carrito, clearCart, montoTotal, cantidadTotal} = contextoCarrito;
 
-  const eliminarDeUno = (id) => {
-    const product = carrito.find((producto) => producto.id === id);
-  if (product && product.contador > 1) {
-    // Resta 1 al contador si es mayor que 1
-    addCart(product, -1);
-  } else {
-    // Si el contador es 1 o menos, elimina el producto del carrito
-    removeCart(id);
-  }
+  const eliminarProducto = (id) => {
+    contextoCarrito.removeCart(id); 
   };
 
   return (
@@ -37,8 +30,7 @@ function Cart() {
                 <img className='img_card' src={producto.image} alt={producto.title} />
                 <p>Cantidad: {producto.contador}</p>
                 <p>Precio Total: ${producto.price * producto.contador}</p>
-                <button onClick={() => eliminarDeUno(producto.id)}>-</button>
-                <button onClick={() => removeCart(producto.id)}>Eliminar</button>
+                <button onClick={() => eliminarProducto(producto.id)}>Eliminar</button>
               </li>
             ))}
             </ul>
