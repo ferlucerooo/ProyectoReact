@@ -30,12 +30,6 @@ function ItemDetailContainer() {
             console.log("error en la peticion del detalle", error);
           })
 
-
-
-        /* fetch(`https://fakestoreapi.com/products/${id}`)
-          .then(response => response.json())
-          .then(data => setItem(data))
-          .catch(error => console.error('Error al adquirir detao del fetch', error)); */
       }, [id]);
 
       if (!item){

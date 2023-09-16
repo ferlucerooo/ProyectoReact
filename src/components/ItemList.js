@@ -9,13 +9,13 @@ import { getDocs , collection } from 'firebase/firestore';
 
 function ItemList() {
 
-    const [data, setData] = useState ([]);  // solo pasa 1 vez
+    const [data, setData] = useState ([]);  
 
-    const {id} = useParams();  // paara la categooriaa
+    const {id} = useParams();  
 
     const [loading, setLoading] = useState(true);
     
-    /* const resultado = useParams(); */
+    
   
   
   useEffect(()=>{

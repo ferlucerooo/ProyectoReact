@@ -12,12 +12,5 @@ function NavBar() {
     </nav>
   );
 }
-
-//con Link no recarga la app
-    /* <nav>
-      <Link to="/productos">Productos</Link>
-      <a href="/carrito">Carrito</a>
-      <a href="/sadsad">asdsadsa</a>
-    </nav> */
     
 export default NavBar
